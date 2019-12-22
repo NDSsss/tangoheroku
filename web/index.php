@@ -56,7 +56,7 @@ $app->get('/getusers', function() use($app) {
 	return $app -> json($respp, 200);
 });
 
-public function findUserById($userSheetId)
+function findUserById($userSheetId)
 {
 	$seetsAnsver = json_decode(file_get_contents("https://script.google.com/macros/s/AKfycbwwgtPVBck0oKJ3FU435xcbhVHbz0AXh09UvsHwe1AmRwsWfsuF/exec?action=getPeople"));
 	$people = $sheetsAnswer->people;
