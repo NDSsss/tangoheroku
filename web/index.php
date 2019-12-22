@@ -33,7 +33,7 @@ $app->post('/bot', function() use($app) {
 			return getenv('VK_CONFIRM_TOKEN');
 			break;
 		case 'message_new':
-	error_log("in message_new");
+			error_log("in message_new");
 			$request_params = array(
 				'user_id' => $data->object->from_id,
 				'message' => 'Test',
@@ -50,7 +50,7 @@ $app->post('/bot', function() use($app) {
 			break;
 	}
 
-	return 'nioh';
+	return 'end';
 });
 
 $app->run();
