@@ -53,7 +53,7 @@ $app->post('/bot', function() use($app) {
 
 $app->get('/getusers', function() use($app) {
 	$respp = json_decode(file_get_contents("https://script.google.com/macros/s/AKfycbwwgtPVBck0oKJ3FU435xcbhVHbz0AXh09UvsHwe1AmRwsWfsuF/exec?action=getPeople"));
-	return $app -> json($respp, 200);
+	return $respp;
 });
 
 function findUserById($userSheetId)
