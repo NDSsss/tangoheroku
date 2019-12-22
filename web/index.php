@@ -24,9 +24,7 @@ $app->post('/bot', function() use($app) {
 
 	if( !$data)
 		return 'data is null';
-
-	if( $data->secret !== getenv('VK_SECRET_TOKEN'))
-		return 'secret is not match';
+	
 	error_log("in switch");
 	switch ($data->type) {
 		case 'confirmation':
