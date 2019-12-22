@@ -52,7 +52,7 @@ $app->post('/bot', function() use($app) {
 });
 
 $app->get('/getusers', function() use($app) {
-	$respp = file_get_contents("https://script.google.com/macros/s/AKfycbwwgtPVBck0oKJ3FU435xcbhVHbz0AXh09UvsHwe1AmRwsWfsuF/exec?action=getPeople");
+	$respp = json_decode(file_get_contents("https://script.google.com/macros/s/AKfycbwwgtPVBck0oKJ3FU435xcbhVHbz0AXh09UvsHwe1AmRwsWfsuF/exec?action=getPeople"));
 	return respp;
 });
 
