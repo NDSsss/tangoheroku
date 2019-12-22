@@ -33,13 +33,13 @@ $app->post('/bot', function() use($app) {
 		case 'message_new':
 			error_log("in message_new");
 			$request_params = array(
-				'user_id' => $data->object->from_id,
-				'message' => 'Test',
+				'user_id' => $data->object->user_id,
+				'message' => findUserById(1),
 				'access_token' => getenv(VK_TOKEN),
 				'v' => '5.69'
 			);
 			error_log(request_params);
-			file_get_contents("https://api.vk.com/method/messages.send?user_id=88677243&message=Test2&access_token=e7c1719be1f5c6d9b858e95e1d21f1b3129126e88964c2ab5b67f5b16837cb0fdcbb9491eb744fde64467&v=5.69");
+			file_get_contents("https://api.vk.com/method/messages.send?" . http_build_query($request_params));
 			return 'ok';
 			break;
 		
@@ -55,6 +55,14 @@ $app->get('/getusers', function() use($app) {
 	$respp = json_decode(file_get_contents("https://script.google.com/macros/s/AKfycbwwgtPVBck0oKJ3FU435xcbhVHbz0AXh09UvsHwe1AmRwsWfsuF/exec?action=getPeople"));
 	return $app -> json($respp, 200);
 });
+
+public function findUserById($userSheetId)
+{
+	$seetsAnsver = json_decode(file_get_contents("https://script.google.com/macros/s/AKfycbwwgtPVBck0oKJ3FU435xcbhVHbz0AXh09UvsHwe1AmRwsWfsuF/exec?action=getPeople"));
+	$people = $sheetsAnswer->people;
+
+	return $app -> json(people, 200);
+}
 
 
 $app->run();
