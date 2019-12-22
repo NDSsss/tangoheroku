@@ -24,7 +24,7 @@ $app->post('/bot', function() use($app) {
 
 	if( !$data)
 		return 'data is null';
-	
+
 	error_log("in switch");
 	switch ($data->type) {
 		case 'confirmation':
@@ -50,5 +50,9 @@ $app->post('/bot', function() use($app) {
 
 	return 'end';
 });
+
+$app->post('/getusers', function() use($app)){
+	return file_get_contents("https://script.google.com/macros/s/AKfycbwwgtPVBck0oKJ3FU435xcbhVHbz0AXh09UvsHwe1AmRwsWfsuF/exec?action=getPeople");
+}
 
 $app->run();
