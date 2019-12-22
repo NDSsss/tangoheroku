@@ -53,15 +53,15 @@ $app->post('/bot', function() use($app) {
 
 $app->get('/getusers', function() use($app) {
 	$respp = json_decode(file_get_contents("https://script.google.com/macros/s/AKfycbwwgtPVBck0oKJ3FU435xcbhVHbz0AXh09UvsHwe1AmRwsWfsuF/exec?action=getPeople"));
-	return $respp;
+	return $app -> json($respp, 200);
 });
 
 function findUserById($userSheetId)
 {
 	$seetsAnsver = json_decode(file_get_contents("https://script.google.com/macros/s/AKfycbwwgtPVBck0oKJ3FU435xcbhVHbz0AXh09UvsHwe1AmRwsWfsuF/exec?action=getPeople"));
 	$people = $sheetsAnswer->people;
-
-	return $app -> json(people, 200);
+	error_log($people);
+	return people;
 }
 
 
