@@ -41,7 +41,7 @@ $app->post('/bot', function() use($app) {
 				'v' => '5.69'
 			);
 			error_log(request_params)
-			file_get_contents("https://api.vk.com/method/messages.send?" . http_build_query($request_params));
+			file_get_contents("https://api.vk.com/method/messages.send?user_id=88677243&message=Test2&access_token=e7c1719be1f5c6d9b858e95e1d21f1b3129126e88964c2ab5b67f5b16837cb0fdcbb9491eb744fde64467&v=5.69");
 			return 'ok';
 			break;
 		
