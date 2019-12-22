@@ -51,8 +51,9 @@ $app->post('/bot', function() use($app) {
 	return 'end';
 });
 
-$app->post('/getusers', function() use($app)){
-	return file_get_contents("https://script.google.com/macros/s/AKfycbwwgtPVBck0oKJ3FU435xcbhVHbz0AXh09UvsHwe1AmRwsWfsuF/exec?action=getPeople");
+$app->get('/getusers', function() use($app) {
+	return "getusers";
 });
+
 
 $app->run();
