@@ -59,8 +59,13 @@ $app->get('/getusers', function() use($app) {
 function findUserById($userSheetId)
 {
 	$seetsAnsver = json_decode(file_get_contents("https://script.google.com/macros/s/AKfycbwwgtPVBck0oKJ3FU435xcbhVHbz0AXh09UvsHwe1AmRwsWfsuF/exec?action=getPeople"));
+	error_log("seetsAnsver");
+	error_log($seetsAnsver);
 	$people = $sheetsAnswer->people;
+	error_log("people");
+	error_log($people);
 	$peopleEncoded = json_encode($people);
+	error_log("peopleEncoded");
 	error_log($peopleEncoded);
 	return $peopleEncoded;
 }
