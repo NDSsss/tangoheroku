@@ -23,10 +23,10 @@ $app->post('/bot', function() use($app) {
 	$data = json_decode(file_get_contents('php://input'));
 
 	if( !$data)
-		return 'nioh';
+		return 'data is null';
 
 	if( $data->secret !== getenv('VK_SECRET_TOKEN'))
-		return 'nioh';
+		return 'secret is not match';
 	error_log("in switch");
 	switch ($data->type) {
 		case 'confirmation':
